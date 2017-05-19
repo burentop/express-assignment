@@ -13,8 +13,16 @@ app.get("/speak/:animal", function(req, res) {
 });
 
 // add repeat route
+app.get("/repeat/:saying/:count", function(req, res) {
+   var saying = req.params.saying;
+   var count = Number(req.params.count); 
+   res.send(repeat(saying, count));
+});
 
 // add * route
+app.get("*", function(req, res) {
+    res.send("Sorry, page note found...What are you doing with your life?");
+})
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Server has started...");
@@ -34,3 +42,10 @@ function speak(animal) {
 }
 
 // add repeat function
+function repeat(saying, count) {
+    var result = "";
+    for (var i = 0; i < count; i++) {
+        result = result + saying + " ";
+    }
+    return result;
+}
