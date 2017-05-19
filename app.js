@@ -8,8 +8,14 @@ app.get("/", function(req, res) {
 
 // add speak route
 app.get("/speak/:animal", function(req, res) {
-   var animal = req.params.animal;
-   res.send(speak(animal));
+   var sounds = {
+       pig: "Oink", 
+       cow: "Moo",
+       dog: "Woof Woof!"
+   }
+   var animal = req.params.animal.toLowerCase();
+   var sound = sounds[animal];
+   res.send("The " + animal + " says '" + sound + "'");
 });
 
 // add repeat route
@@ -27,19 +33,6 @@ app.get("*", function(req, res) {
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Server has started...");
 });
-
-// add speak function
-function speak(animal) {
-   var greeting = "";
-   if (animal === 'pig') {
-       greeting = "'Oink'";
-   } else if (animal === 'cow') {
-       greeting = "'Moo'";
-   } else if (animal === 'dog') {
-       greeting = "'Woof Woof!";
-   }
-   return "The " + animal + " says " + greeting;
-}
 
 // add repeat function
 function repeat(saying, count) {
