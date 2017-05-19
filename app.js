@@ -7,6 +7,10 @@ app.get("/", function(req, res) {
 });
 
 // add speak route
+app.get("/speak/:animal", function(req, res) {
+   var animal = req.params.animal;
+   res.send(speak(animal));
+});
 
 // add repeat route
 
@@ -17,5 +21,16 @@ app.listen(process.env.PORT, process.env.IP, function() {
 });
 
 // add speak function
+function speak(animal) {
+   var greeting = "";
+   if (animal === 'pig') {
+       greeting = "'Oink'";
+   } else if (animal === 'cow') {
+       greeting = "'Moo'";
+   } else if (animal === 'dog') {
+       greeting = "'Woof Woof!";
+   }
+   return "The " + animal + " says " + greeting;
+}
 
 // add repeat function
