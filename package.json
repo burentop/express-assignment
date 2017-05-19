@@ -1,0 +1,16 @@
+{
+  "name": "express-assignment",
+  "version": "1.0.0",
+  "description": "assignment on Express routing",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.3",
+    "node": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brent Perry",
+  "license": "ISC"
+}
